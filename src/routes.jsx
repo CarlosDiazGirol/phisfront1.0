@@ -3,6 +3,7 @@ import ErrorPage from "./modules/Error"
 import Header from"./modules/Header"
 import App from "./App"
 import Home from "./modules/Home"
+import Login from "./modules/Login"
 
 const router= createBrowserRouter(
     [{
@@ -11,7 +12,8 @@ element:<Header/> ,
 errorElement:<ErrorPage/>,
 children:[
     {path:"/patients",  element:<App/>},
-    {path:"/", element:<Home/>}
+    {path:"/", element:<Home/>},
+    {path:"/login", element:<Login/>}
 ]}
 // ,
 // [{
