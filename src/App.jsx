@@ -30,9 +30,7 @@ setData(resData)
   },[])
 
 
-  // const datamapped = data.map((d, _id) => (
-  //   <div key={_id}>{d.nombre}</div>
-  // ));
+
 
   //Console.log(data) Imprime correctamente todos los pacientes desde la base de datos en la consola
   //El ternario pone cargando mientras la información no se reciba y después debe de cargar la información

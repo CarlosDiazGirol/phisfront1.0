@@ -7,8 +7,9 @@ function Header(){
 return(
     <>
       <nav>
-<p><Link to="/patients">Home</Link></p>
+<p><Link to="/">Home</Link></p>
 <p><Link to="/createpatient">Create Patient</Link></p>
+<p><Link to="/patients">Patients</Link></p>
     </nav>
     <Outlet/>
     </>

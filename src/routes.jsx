@@ -10,8 +10,8 @@ path:"/",
 element:<Header/> ,
 errorElement:<ErrorPage/>,
 children:[
-    {path:"/",  element:<App/>},
-    {path:"/patients", element:<Home/>}
+    {path:"/patients",  element:<App/>},
+    {path:"/", element:<Home/>}
 ]}
 // ,
 // [{
