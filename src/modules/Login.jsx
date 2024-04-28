@@ -38,7 +38,7 @@ function Login() {
             <h2>Access Your Account</h2>
             </div>
         
-        <button className={styles.signButton}><img src="../google-removebg-preview.png" width="30px"></img>Sign with Google</button>
+        <button className={styles.signButton}>Sign with Google</button>
 <form onSubmit={handleSubmit}>
 
 
