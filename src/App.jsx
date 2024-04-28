@@ -49,7 +49,7 @@ setData(resData)
           <ul>
             {data.map(item=>(
 <li key={item._id}>{item.nombre},{item.apellido} 
-
+<Link to={`/${item._id}`}>{item.nombre}</Link>
 
 </li>
 
