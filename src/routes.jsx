@@ -5,6 +5,7 @@ import App from "./App"
 import Home from "./modules/Home"
 import Login from "./modules/Login"
 import CreatePatientForm from "./modules/CreatePatientForm"
+import SignUp from "./modules/SignUp"
 
 const router= createBrowserRouter(
     [{
@@ -15,7 +16,8 @@ children:[
     {path:"/patients",  element:<App/>},
     {path:"/", element:<Home/>},
     {path:"/login", element:<Login/>},
-    {path:"/createpatient", element:<CreatePatientForm/>}
+    {path:"/createpatient", element:<CreatePatientForm/>},
+    {path:"/signup", element:<SignUp/>},
 ]}
 // ,
 // [{

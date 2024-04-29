@@ -71,7 +71,7 @@ function Login() {
 
         <button type="submit" className={styles.button}>Iniciar sesión</button>
  <p>Don't have an account? 
- <Link to="/login/signup"><b>Sign up</b></Link>
+ <Link to="/signup"><b>Sign up</b></Link>
   </p>
 
 </form>
