@@ -64,7 +64,8 @@ function Login() {
 </div>
 <div>
 <p>Remember me</p>
-<p><b>Forgot Passwoord?</b></p>
+<Link to="/newpass"><b>Forgot Passwoord?</b></Link>
+
 
 
 </div>

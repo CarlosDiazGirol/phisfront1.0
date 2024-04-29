@@ -6,6 +6,7 @@ import Home from "./modules/Home"
 import Login from "./modules/Login"
 import CreatePatientForm from "./modules/CreatePatientForm"
 import SignUp from "./modules/SignUp"
+import NewPass from "./modules/NewPass"
 
 const router= createBrowserRouter(
     [{
@@ -18,6 +19,7 @@ children:[
     {path:"/login", element:<Login/>},
     {path:"/createpatient", element:<CreatePatientForm/>},
     {path:"/signup", element:<SignUp/>},
+    {path:"/newpass", element:<NewPass/>}
 ]}
 // ,
 // [{
