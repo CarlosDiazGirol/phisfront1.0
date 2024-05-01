@@ -30,8 +30,6 @@ setData(resData)
   },[data])
 
 
-
-
   //Console.log(data) Imprime correctamente todos los pacientes desde la base de datos en la consola
   //El ternario pone cargando mientras la información no se reciba y después debe de cargar la información
   return (

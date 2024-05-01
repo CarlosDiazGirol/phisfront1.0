@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';//importo React, useState y useEffect
 import styles from './CreatePatientForm.module.css'; //importo los estilos del formulario
-import Patients from './Patients';
+
 
 
 function CreatePatientForm() {
@@ -14,7 +14,7 @@ function CreatePatientForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const urlApiCreate="http://localhost3000/patient/create"
+    const urlApiCreate="http://localhost:3000/patient/create"
     // Agregar la lógica para enviar los datos del formulario alservidor para autenticación
     
     try {
@@ -27,11 +27,14 @@ function CreatePatientForm() {
     })
 if (response.ok){
     const data = await response.json()
-    setRes(data.name)
+    console.log("Success", data)
+    setRes("Success",data.name)
     setName("")//De esta forma limpio el imput después de enviarlo
+} else {
+  throw new Error("Something went wrong")
 }
         
-    } catch (error) {console.log(error)
+    } catch (error) {console.error("Error:",error)
         
     }
     console.log('Name:', name);
@@ -56,13 +59,9 @@ if (response.ok){
     <label htmlFor="name">Nombre</label>
     </div>
           
-          <input
-            type="text"
-            id="name"
-            value={name}
+          <input type="text" id="name" value={name}
             onChange={(e)=>setName(e.target.value)}
-            placeholder="Nombre"
-            required
+            placeholder="Nombre" required
           />
 </div>
 <div>
@@ -70,13 +69,9 @@ if (response.ok){
     <label htmlFor="surname">Apellido</label>
     </div>
           
-          <input
-            type="text"
-            id="surname"
-            value={surname}
+          <input type="text" id="surname" value={surname}
             onChange={(e)=>setSurname(e.target.value)}
-            placeholder="Apellido"
-            required
+            placeholder="Apellido" required
           />
 </div>
 <div>
@@ -84,13 +79,9 @@ if (response.ok){
     <label htmlFor="email">Correo</label>
     </div>
           
-          <input
-            type="email"
-            id="email"
-            value={email}
+          <input type="email" id="email" value={email}
             onChange={(e)=>setEmail(e.target.value)}
-            placeholder="Mail"
-            required
+            placeholder="Mail" required
           />
 </div>
 <div>
@@ -98,13 +89,9 @@ if (response.ok){
     <label htmlFor="historialClinico">Historial Clinico</label>
     </div>
           
-          <input
-            type="text"
-            id="historialClinico"
-            value={historialClinico}
+          <input type="text" id="historialClinico" value={historialClinico}
             onChange={(e)=>setHistorialClinico(e.target.value)}
-            placeholder="Historial Clinico"
-            required
+            placeholder="Historial Clinico" required
           />
 </div>
 
@@ -113,7 +100,7 @@ if (response.ok){
 
 </form>
         </div>
-        <h2>Paciente creado: </h2>
+        <h2>{res} </h2>
        
         </>
     )}
