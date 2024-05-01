@@ -1,11 +1,11 @@
 import { useState,useEffect } from 'react' //import useState y useEffecto desde react
 import {Link} from "react-router-dom"//importo Link desde el router dom
-import './App.css' //importo css
+import './Patients.css' //importo css
 
 //Creo una constante app que es igual a una función callback donde defino el valor inical de data en null 
 //utilizando useState, defino una constante que será la url de la qué tendré que coger la información
 
-const App=()=> {
+const Patients=()=> {
   const [data, setData] = useState(null)
 const urlApi="http://localhost:3000/patients/"
 
@@ -27,7 +27,7 @@ setData(resData)
 //al hacer un post en crud directamente se actualizaría en la pagina sin tener que refrescarla
   useEffect(()=>{
     fetchData()
-  },[])
+  },[data])
 
 
 
@@ -58,16 +58,8 @@ setData(resData)
       </div>
     </>
   
-  
-
-
-  
-
-
-      
-     
     
   )
 }
 
-export default App
+export default Patients

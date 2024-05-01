@@ -9,7 +9,7 @@ return(
       <nav>
 <p><Link to="/">Home</Link></p>
 <p><Link to="/login">Login</Link></p>
-<p><Link to="/createpatient">Create Patient</Link></p>
+<p><Link to="/patient/create">Create Patient</Link></p>
 <p><Link to="/patients">Patients</Link></p>
 
     </nav>

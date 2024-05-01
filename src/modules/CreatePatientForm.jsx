@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {Link, Outlet} from "react-router-dom";
-import styles from './CreatePatientForm.module.css';
-
+import React, { useState, useEffect } from 'react';//importo React, useState y useEffect
+import styles from './CreatePatientForm.module.css'; //importo los estilos del formulario
+import Patients from './Patients';
 
 
 function CreatePatientForm() {
     
-  
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [historialClinico, setHistorialClinico] = useState('');
-
-
-
+    const [res,setRes]=useState("");//Esto servirá para cambiar el estado de la respuesta 
+    const payload= {name,surname,email,historialClinico}
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -31,10 +28,28 @@ function CreatePatientForm() {
     setHistorialClinico(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const urlApiCreate="http://localhost3000/patient/create"
     // Agregar la lógica para enviar los datos del formulario alservidor para autenticación
     
+    try {
+        const response= await fetch(urlApiCreate,{
+            method:"POST"  ,
+             headers:{
+                "content-type":"application/json"
+        },
+        body:JSON.stringify(payload),
+    })
+if (response.ok){
+    const data = await response.json()
+    setRes(data.name)
+    setName("")//De esta forma limpio el imput después de enviarlo
+}
+        
+    } catch (error) {console.log(error)
+        
+    }
     console.log('Name:', name);
     console.log('Surname:', surname);
   };
@@ -62,6 +77,7 @@ function CreatePatientForm() {
             id="name"
             value={name}
             onChange={handleNameChange}
+            placeholder="Nombre"
             required
           />
 </div>
@@ -75,6 +91,7 @@ function CreatePatientForm() {
             id="surname"
             value={surname}
             onChange={handleSurnameChange}
+            placeholder="Apellido"
             required
           />
 </div>
@@ -88,6 +105,7 @@ function CreatePatientForm() {
             id="email"
             value={email}
             onChange={handleEmailChange}
+            placeholder="Mail"
             required
           />
 </div>
@@ -101,6 +119,7 @@ function CreatePatientForm() {
             id="historialClinico"
             value={historialClinico}
             onChange={handleHistorialClinicoChange}
+            placeholder="Historial Clinico"
             required
           />
 </div>
@@ -110,7 +129,7 @@ function CreatePatientForm() {
 
 </form>
         </div>
-        
+        <h2>Paciente creado: </h2>
        
         </>
     )}
