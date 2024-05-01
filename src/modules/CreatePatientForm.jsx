@@ -12,22 +12,6 @@ function CreatePatientForm() {
     const [res,setRes]=useState("");//Esto servirá para cambiar el estado de la respuesta 
     const payload= {name,surname,email,historialClinico}
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleSurnameChange = (event) => {
-    setSurname(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleHistorialClinicoChange = (event) => {
-    setHistorialClinico(event.target.value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const urlApiCreate="http://localhost3000/patient/create"
@@ -76,7 +60,7 @@ if (response.ok){
             type="text"
             id="name"
             value={name}
-            onChange={handleNameChange}
+            onChange={(e)=>setName(e.target.value)}
             placeholder="Nombre"
             required
           />
@@ -90,7 +74,7 @@ if (response.ok){
             type="text"
             id="surname"
             value={surname}
-            onChange={handleSurnameChange}
+            onChange={(e)=>setSurname(e.target.value)}
             placeholder="Apellido"
             required
           />
@@ -104,7 +88,7 @@ if (response.ok){
             type="email"
             id="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e)=>setEmail(e.target.value)}
             placeholder="Mail"
             required
           />
@@ -118,7 +102,7 @@ if (response.ok){
             type="text"
             id="historialClinico"
             value={historialClinico}
-            onChange={handleHistorialClinicoChange}
+            onChange={(e)=>setHistorialClinico(e.target.value)}
             placeholder="Historial Clinico"
             required
           />
